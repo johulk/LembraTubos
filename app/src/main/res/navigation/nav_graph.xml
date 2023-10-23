@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <action
+        android:id="@+id/action_global_addClienteFragment"
+        app:destination="@id/addClienteFragment" />
+
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.prototipo.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/shortsFragment"
+        android:name="com.example.prototipo.fragments.ShortsFragment"
+        android:label="fragment_shorts"
+        tools:layout="@layout/fragment_shorts" />
+
+    <fragment
+        android:id="@+id/addClienteFragment"
+        android:name="com.example.prototipo.fragments.AddClienteFragment"
+        android:label="fragment_add_cliente"
+        tools:layout="@layout/fragment_add_cliente" >
+        <action
+            android:id="@+id/action_addClienteFragment_to_clientesListFragment"
+            app:destination="@id/clientesListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/clientesListFragment"
+        android:name="com.example.prototipo.fragments.ClientesListFragment"
+        android:label="ClientesListFragment" >
+        <action
+            android:id="@+id/action_clientesListFragment_to_detalhesCliente"
+            app:destination="@id/detalhesCliente" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalhesCliente"
+        android:name="com.example.prototipo.fragments.DetalhesCliente"
+        android:label="fragment_detalhes_cliente"
+        tools:layout="@layout/fragment_detalhes_cliente" >
+        <action
+            android:id="@+id/action_detalhesCliente_to_addServicoFragment"
+            app:destination="@id/addServicoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addServicoFragment"
+        android:name="com.example.prototipo.fragments.AddServicoFragment"
+        android:label="fragment_add_servico"
+        tools:layout="@layout/fragment_add_servico" >
+
+    </fragment>
+     <fragment
+        android:id="@+id/libraryFragment"
+        android:name="com.example.prototipo.fragments.LibraryFragment"
+        android:label="fragment_library"
+        tools:layout="@layout/fragment_library" />
+    <fragment
+        android:id="@+id/cameraFragment"
+        android:name="com.example.prototipo.fragments.CameraFragment"
+        android:label="fragment_subscription"
+        tools:layout="@layout/fragment_camera" />
+    <fragment
+        android:id="@+id/documentsFragment"
+        android:name="com.example.prototipo.documentsHandler.DocumentsFragment"
+        android:label="fragment_documents"
+        tools:layout="@layout/fragment_documents" >
+        <action
+            android:id="@+id/action_documentsFragment_to_fullSizeImageFragment"
+            app:destination="@id/fullSizeImageFragment" />
+    </fragment>
+    <action android:id="@+id/action_global_documentsFragment" app:destination="@id/documentsFragment" />
+
+    <fragment
+        android:id="@+id/fullSizeImageFragment"
+        android:name="com.example.prototipo.FullSizeImageFragment"
+        android:label="Full Size Image">
+        <argument
+            android:name="imagePosition"
+            app:argType="integer"
+            android:defaultValue="0"
+            />
+    </fragment>
+
+</navigation>
