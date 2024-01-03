@@ -5,69 +5,65 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/homeFragment">
 
-    <action
-        android:id="@+id/action_global_addClienteFragment"
-        app:destination="@id/addClienteFragment" />
-
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.prototipo.fragments.HomeFragment"
+        android:name="com.johulk.tarefaguru.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/shortsFragment"
-        android:name="com.example.prototipo.fragments.ShortsFragment"
-        android:label="fragment_shorts"
-        tools:layout="@layout/fragment_shorts" />
-
-    <fragment
-        android:id="@+id/addClienteFragment"
-        android:name="com.example.prototipo.fragments.AddClienteFragment"
-        android:label="fragment_add_cliente"
-        tools:layout="@layout/fragment_add_cliente" >
+        android:id="@+id/servicosListFragment"
+        android:name="com.johulk.tarefaguru.fragments.ServicosListFragment"
+        android:label="ServicosListFragment"
+        tools:layout="@layout/fragment_servicos_list" >
         <action
-            android:id="@+id/action_addClienteFragment_to_clientesListFragment"
-            app:destination="@id/clientesListFragment" />
+            android:id="@+id/action_servicosListFragment_to_detalhesServico"
+            app:destination="@id/detalhesServico" />
     </fragment>
+
     <fragment
         android:id="@+id/clientesListFragment"
-        android:name="com.example.prototipo.fragments.ClientesListFragment"
+        android:name="com.johulk.tarefaguru.fragments.ClientesListFragment"
         android:label="ClientesListFragment" >
         <action
-            android:id="@+id/action_clientesListFragment_to_detalhesCliente"
-            app:destination="@id/detalhesCliente" />
+            android:id="@+id/action_clientesListFragment_to_libraryFragment"
+            app:destination="@id/libraryFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/detalhesCliente"
-        android:name="com.example.prototipo.fragments.DetalhesCliente"
-        android:label="fragment_detalhes_cliente"
-        tools:layout="@layout/fragment_detalhes_cliente" >
-        <action
-            android:id="@+id/action_detalhesCliente_to_addServicoFragment"
-            app:destination="@id/addServicoFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/addServicoFragment"
-        android:name="com.example.prototipo.fragments.AddServicoFragment"
-        android:label="fragment_add_servico"
-        tools:layout="@layout/fragment_add_servico" >
 
-    </fragment>
      <fragment
         android:id="@+id/libraryFragment"
-        android:name="com.example.prototipo.fragments.LibraryFragment"
+        android:name="com.johulk.tarefaguru.fragments.LibraryFragment"
         android:label="fragment_library"
-        tools:layout="@layout/fragment_library" />
+        tools:layout="@layout/fragment_library" >
+          <action
+             android:id="@+id/action_libraryFragment_to_addServicoFragment"
+             app:destination="@id/detalhesServico" />
+         <argument
+             android:name="Cliente"
+             app:argType="com.johulk.tarefaguru.database.cliente.Cliente" />
+         <action
+             android:id="@+id/action_libraryFragment_to_cameraFragment"
+             app:destination="@id/cameraFragment" />
+         <action
+             android:id="@+id/action_libraryFragment_to_addClienteFragment2"
+             app:destination="@id/addClienteFragment2" />
+     </fragment>
     <fragment
         android:id="@+id/cameraFragment"
-        android:name="com.example.prototipo.fragments.CameraFragment"
+        android:name="com.johulk.tarefaguru.fragments.CameraFragment"
         android:label="fragment_subscription"
-        tools:layout="@layout/fragment_camera" />
+        tools:layout="@layout/fragment_camera" >
+        <argument
+            android:name="clienteId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_cameraFragment_to_libraryFragment"
+            app:destination="@id/libraryFragment" />
+    </fragment>
     <fragment
         android:id="@+id/documentsFragment"
-        android:name="com.example.prototipo.documentsHandler.DocumentsFragment"
+        android:name="com.johulk.tarefaguru.documentsHandler.DocumentsFragment"
         android:label="fragment_documents"
         tools:layout="@layout/fragment_documents" >
         <action
@@ -78,7 +74,7 @@
 
     <fragment
         android:id="@+id/fullSizeImageFragment"
-        android:name="com.example.prototipo.FullSizeImageFragment"
+        android:name="com.johulk.tarefaguru.FullSizeImageFragment"
         android:label="Full Size Image">
         <argument
             android:name="imagePosition"
@@ -86,5 +82,44 @@
             android:defaultValue="0"
             />
     </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.johulk.tarefaguru.MainActivity"
+        android:label="fragment_clientes_list"
+        tools:layout="@layout/fragment_clientes_list" />
+    <fragment
+        android:id="@+id/addClienteFragment2"
+        android:name="com.johulk.tarefaguru.fragments.AddClienteFragment"
+        android:label="fragment_edit_cliente"
+        tools:layout="@layout/fragment_add_cliente" >
+        <action
+            android:id="@+id/action_addClienteFragment2_to_clientesListFragment"
+            app:destination="@id/clientesListFragment" />
+        <action
+            android:id="@+id/action_addClienteFragment2_to_libraryFragment"
+            app:destination="@id/libraryFragment" />
+        <argument
+            android:name="cliente"
+            app:argType="com.johulk.tarefaguru.database.cliente.Cliente"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <action android:id="@+id/action_global_addClienteFragment2" app:destination="@id/addClienteFragment2" />
+    <fragment
+        android:id="@+id/detalhesServico"
+        android:name="com.johulk.tarefaguru.fragments.AddServicoFragment"
+        android:label="DetalhesServico" >
 
+        <action
+            android:id="@+id/action_detalhesServico_to_libraryFragment"
+            app:destination="@id/libraryFragment" />
+        <argument
+            android:name="cliente"
+            app:argType="com.johulk.tarefaguru.database.cliente.Cliente"
+            app:nullable="true" />
+        <argument
+            android:name="servico"
+            app:argType="com.johulk.tarefaguru.database.servico.Servico"
+            app:nullable="true" />
+    </fragment><action android:id="@+id/action_global_detalhesServico" app:destination="@id/detalhesServico"/>
 </navigation>

@@ -6,10 +6,10 @@
         android:id="@+id/search_bar_clientes"
         android:icon="@drawable/baseline_person_search_24"
         android:title="Procurar"
+        app:theme = "@style/SearchViewStyle"
+        app:navigationIconTint="@color/black"
+        android:layout_height="?android:attr/actionBarSize"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
-        app:showAsAction="always|collapseActionView"/>
-
-
-
+        app:showAsAction="ifRoom|collapseActionView"/>
 
 </menu>

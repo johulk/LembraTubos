@@ -14,13 +14,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/imageCliente"
-            android:layout_width="96dp"
+        <com.google.android.material.chip.Chip
+            android:id="@+id/singleChip"
+            android:layout_width="25dp"
             android:layout_height="match_parent"
-            android:contentDescription="@string/place_holder_morada"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/round_remove_24" />
+            android:text=" "
+            app:chipCornerRadius="16dp"
+            app:chipBackgroundColor="@android:color/holo_green_dark"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -32,14 +33,19 @@
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="25dp"
                 android:text="@string/place_holder_nome"
                 android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+
+
+
 
             <TextView
                 android:id="@+id/telemovel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/place_holder_telemovel"
                 android:textAppearance="?attr/textAppearanceBodyMedium"
                 android:textColor="?android:attr/textColorSecondary" />

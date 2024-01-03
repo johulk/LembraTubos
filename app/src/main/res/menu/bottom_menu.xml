@@ -4,26 +4,21 @@
 
     <item
         android:id="@+id/homeFragment"
-        android:title="Home"
+        android:title="Painel Principal"
         android:icon="@drawable/baseline_home_24"
         app:showAsAction="ifRoom"/>
 
     <item
-        android:id="@+id/shortsFragment"
-        android:title="Shorts"
-        android:icon="@drawable/baseline_whatshot_24"
+        android:id="@+id/clientesListFragment"
+        android:title="Clientes"
+        android:icon="@drawable/baseline_person_24"
         app:showAsAction="ifRoom"/>
     <item
-        android:id="@+id/cameraFragment"
-        android:title="Subscriptions"
-        android:icon="@drawable/baseline_subscriptions_24"
+        android:id="@+id/servicosListFragment"
+        android:title="Serviços"
+        android:icon="@drawable/list_alt_24"
         app:showAsAction="ifRoom"/>
 
-    <item
-        android:id="@+id/libraryFragment"
-        android:title="Library"
-        android:icon="@drawable/baseline_video_library_24"
-        app:showAsAction="ifRoom"/>
 
 
 </menu>

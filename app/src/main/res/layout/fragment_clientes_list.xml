@@ -1,18 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="650dp"
     android:id="@+id/clientesListFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar"
+        style="@style/Widget.MaterialComponents.Toolbar.Primary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        app:navigationIconTint="@color/black"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme">
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipFilterAtivo"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Ativo" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipFilterContrato"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Contrato" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+    </com.google.android.material.appbar.MaterialToolbar>
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/todoListRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="650dp"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="?attr/actionBarSize" />
+
 
 
 </RelativeLayout>

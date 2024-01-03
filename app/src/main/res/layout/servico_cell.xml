@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/taskCellContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="10dp"
+    style="?attr/materialCardViewElevatedStyle"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="15dp"
+                android:text="Nome Cliente"
+                android:textSize="25sp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipDia"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="16dp"
+                android:layout_below="@id/name"
+                android:clickable="false"
+                android:focusable="false"
+                android:text="Segunda Feira - 14/08/2023"
+                app:chipCornerRadius="25dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipHoras"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_toEndOf="@id/chipDia"
+                android:layout_below="@id/name"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:clickable="false"
+                android:focusable="false"
+                android:text="12:00"
+                app:chipCornerRadius="25dp" />
+
+
+
+
+        </RelativeLayout>
+        
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
